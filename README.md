@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + FastAPI ONNX 推理平台
 
-## Getting Started
+本專案整合 Next.js 前端與 FastAPI 後端，支援 ONNX 檔案上傳、推理與結果顯示。
 
-First, run the development server:
+---
+
+## 專案架構
+
+- **前端**：Next.js，提供 ONNX 檔案上傳表單與推理結果顯示。
+- **後端**：FastAPI，負責接收 ONNX 檔案、執行推理並回傳結果。
+
+---
+
+## 快速開始
+
+### 1. 啟動 FastAPI 後端
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 進入後端目錄（如有）
+uvicorn main:app --reload
+# 或
+python main.py
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. 啟動 Next.js 前端
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+瀏覽器開啟 [http://localhost:3000](http://localhost:3000) 使用前端介面。
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 功能說明
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 上傳 ONNX 檔案至後端。
+2. 後端自動執行推理，回傳結果。
+3. 前端即時顯示推理 output。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 注意事項
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- FastAPI 與 Next.js 預設皆為本地端開發環境，請確認兩者 port 設定無衝突。
+- 若 ONNX 模型有特殊 input 格式，請依需求調整後端推理邏輯。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+如需協助，請聯絡專案維護者。
